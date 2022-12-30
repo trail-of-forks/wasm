@@ -1,12 +1,4 @@
-### ❗ Important
-
-Unfortunately, I currently don't have the time to maintain or update this 
-project. While there is a chance that I might revive it at some point, you
-really shoudldn't count on that. Please feel free to fork or just take
-anything that looks useful!
-
-wasm
-====
+# wasm-tob
 
 Python module capable of decoding and disassembling WebAssembly modules
 and bytecode, according to the MVP specification of the WASM binary
@@ -17,21 +9,36 @@ implemented doesn't correspond to any existing definition and is a
 simple `mnemonic op1, op2, ...` format. Functions are formatted in a
 way similar to how Google Chrome does in the debug console.
 
-### Installation
+## ❗ Important
 
-```
+This is a fork of the original project that the author was no longer able to
+spend time on: https://github.com/athre0z/wasm. The changes made here are
+primarily to support the
+[Manticore](https://github.com/trailofbits/manticore) project.
+
+New issues and pull requests will be reviewed on a best-effort basis. Please
+open an issue first if you think fixing the problem will be complex; this is so
+we can evaluate whether a fix or feature is in scope before comitting time to
+review. When opening an issue, please include information on how to reproduce
+what you are seeing. If you feel comfortable, please submit a well-crafted,
+minimal pull request that we can review.
+
+## Installation
+
+```sh
 # From PyPi
-pip install wasm
+pip install wasm-tob
 
 # From GitHub
-pip install git+https://github.com/athre0z/wasm.git
+pip install git+https://github.com/trailofbits/wasm-tob.git
 ```
 
-### Examples
+## Examples
 
 Parsing a WASM module, printing the types of sections found.
+
 ```python
-from wasm import decode_module
+from wasm_tob import decode_module
 
 with open('input-samples/hello/hello.wasm', 'rb') as raw:
     raw = raw.read()
@@ -44,19 +51,23 @@ for cur_sec, cur_sec_data in mod_iter:
 ```
 
 Possible output:
+
+```text
+<wasm_tob.modtypes.TypeSection object at 0x108249b90>
+<wasm_tob.modtypes.ImportSection object at 0x108249bd0>
+<wasm_tob.modtypes.FunctionSection object at 0x108249c10>
+<wasm_tob.modtypes.GlobalSection object at 0x108249cd0>
+<wasm_tob.modtypes.ExportSection object at 0x108249d10>
+<wasm_tob.modtypes.ElementSection object at 0x108249d90>
+<wasm_tob.modtypes.CodeSection object at 0x108249dd0>
+<wasm_tob.modtypes.DataSection object at 0x108249e10>
+<wasm_tob.types.BytesField object at 0x108249b10>
 ```
-<wasm.modtypes.TypeSection object at 0x10dec52e8>
-<wasm.modtypes.ImportSection object at 0x10dec5320>
-<wasm.modtypes.FunctionSection object at 0x10dec5358>
-<wasm.modtypes.GlobalSection object at 0x10dec5400>
-<wasm.modtypes.ExportSection object at 0x10dec5438>
-<wasm.modtypes.ElementSection object at 0x10dec54a8>
-<wasm.modtypes.CodeSection object at 0x10dec54e0>
-<wasm.modtypes.DataSection object at 0x10dec5518>
-```
+
 Parsing specific sections (eg. GlobalSection, ElementSection, DataSection) in WASM module, printing each section's content:
+
 ```python
-from wasm import (
+from wasm_tob import (
     decode_module,
     format_instruction,
     format_lang_type,
@@ -67,7 +78,7 @@ from wasm import (
 )
 
 with open('input-samples/hello/hello.wasm', 'rb') as raw:
-     raw = raw.read()
+    raw = raw.read()
 
 mod_iter = iter(decode_module(raw))
 header, header_data = next(mod_iter)
@@ -98,8 +109,10 @@ for cur_sec, cur_sec_data in mod_iter:
             for cur_insn in entry.offset:
                 print(format_instruction(cur_insn))
 ```
+
 Output:
-```
+
+```text
 GlobalSection:
 mut i32
 get_global 0
@@ -107,7 +120,7 @@ end
 mut i32
 get_global 1
 end
-...
+[...]
 mut f32
 f32.const 0x0
 end
@@ -115,7 +128,7 @@ mut f32
 f32.const 0x0
 end
 ElementSection:
-0 12576 [856, 856, 856, ..., 888]
+0 12576 [856, 856, 856, [...], 888]
 i32.const 0
 end
 DataSection:
@@ -126,8 +139,9 @@ end
 ```
 
 Manually disassemble WASM bytecode, printing each instruction.
+
 ```python
-from wasm import (
+from wasm_tob import (
     decode_bytecode,
     format_instruction,
     INSN_ENTER_BLOCK,
@@ -145,7 +159,8 @@ for cur_insn in decode_bytecode(raw):
 ```
 
 Output:
-```
+
+```text
 block -1
   i32.const 24
   call 28
@@ -154,11 +169,14 @@ block -1
 end
 ```
 
-### `wasmdump` command-line tool
+## `wasmdump` command-line tool
+
 The module also comes with a simple command-line tool called `wasmdump`,
-dumping all module struct in sexy tree format. Optionally, it also
+dumping all module struct in tree format. Optionally, it also
 disassembles all functions found when invoked with `--disas` (slow).
 
-### Version support
-The library was successfully tested on Python 2.7, Python 3.7 and
-PyPy 5.4.
+## Version support
+
+This project aims to support all Python releases that are still actively
+supported and maintained. If you encounter issues with a particular Python
+version, please open an issue.

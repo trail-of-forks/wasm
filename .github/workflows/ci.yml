@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        python:
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          # - "3.10"
+          # - "3.11"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just
+      - name: Test
+        run: just PY_VERSION=${{ matrix.python }} test
+      - name: Package
+        run: just PY_VERSION=${{ matrix.python }} package
