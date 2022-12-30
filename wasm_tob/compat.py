@@ -1,6 +1,7 @@
 """Defines compatibility quirks for Python 2.7."""
 from __future__ import print_function, absolute_import, division, unicode_literals
 
+import collections
 import sys
 import functools
 import logging
@@ -78,4 +79,7 @@ elif sys.version_info[0] == 2:
 else:
     raise Exception("Unsupported Python version")
 
-
+if sys.version_info[0] == 3 and sys.version_info[1] < 10:
+    Callable = collections.Callable
+else:
+    Callable = collections.abc.Callable
