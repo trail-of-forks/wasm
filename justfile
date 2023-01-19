@@ -23,4 +23,3 @@ test: venv
 
 package: venv
     {{V_PY_EXE}} -m build
-
