@@ -17,10 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-19
 
-Initial release after forking https://github.com/athre0z/wasm project.
+Initial release after forking https://github.com/athre0z/wasm project. Previous [CHANGELOG](https://github.com/athre0z/wasm/blob/fa88deaeb6f2e50a7f2796efc8f8ba70e59baafa/CHANGELOG.md) and [commits since last previous release](https://github.com/trailofbits/wasm-tob/compare/5b5f17e...v1.0.0)
 
 ### Added
 
+- Add `--decode-names` arg to wasmdump (by [@athre0z] and unreleased from original project)
+- Add support of wasm `section_id==12` (DataCountSection) (by [@athre0z] and unreleased from original project)
 - GitHub Actions CI/CD for testing and publishing.
 
 ### Changed
@@ -32,4 +34,7 @@ Initial release after forking https://github.com/athre0z/wasm project.
 
 - Compatibility with Python 3.10+. Project tested with Python 3.7 to 3.11.
 
+[unreleased]: https://github.com/trailofbits/wasm-tob/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/trailofbits/wasm-tob/releases/tag/v1.0.0
+
+[@athre0z]: https://github.com/athre0z
