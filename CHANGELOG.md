@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added 
+Moved GitHub repository from `trailofbits` organization to `trail-of-forks` organization.
+
+### Added
 
 ### Changed
 
@@ -17,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-19
 
-Initial release after forking https://github.com/athre0z/wasm project. Previous [CHANGELOG](https://github.com/athre0z/wasm/blob/fa88deaeb6f2e50a7f2796efc8f8ba70e59baafa/CHANGELOG.md) and [commits since last previous release](https://github.com/trailofbits/wasm-tob/compare/5b5f17e...v1.0.0)
+Initial release after forking https://github.com/athre0z/wasm project. Previous [CHANGELOG](https://github.com/athre0z/wasm/blob/fa88deaeb6f2e50a7f2796efc8f8ba70e59baafa/CHANGELOG.md) and [commits since last previous release](https://github.com/trail-of-forks/wasm-tob/compare/5b5f17e...v1.0.0)
 
 ### Added
 
@@ -34,7 +36,7 @@ Initial release after forking https://github.com/athre0z/wasm project. Previous 
 
 - Compatibility with Python 3.10+. Project tested with Python 3.7 to 3.11.
 
-[unreleased]: https://github.com/trailofbits/wasm-tob/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/trailofbits/wasm-tob/releases/tag/v1.0.0
+[unreleased]: https://github.com/trail-of-forks/wasm-tob/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/trail-of-forks/wasm-tob/releases/tag/v1.0.0
 
 [@athre0z]: https://github.com/athre0z

@@ -30,7 +30,7 @@ minimal pull request that we can review.
 pip install wasm-tob
 
 # From GitHub
-pip install git+https://github.com/trailofbits/wasm-tob.git
+pip install git+https://github.com/trail-of-forks/wasm-tob.git
 ```
 
 ## Examples
