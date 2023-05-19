@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-__version__ = '1.0.1'
+__version__ = "1.0.2.pre1"
 
 from .decode import (
     decode_bytecode,
@@ -75,7 +75,7 @@ from .opcodes import (
 
 for cur_op in opcodes.OPCODES:
     globals()[
-        'OP_' + cur_op.mnemonic.upper().replace('.', '_').replace('/', '_')
+        "OP_" + cur_op.mnemonic.upper().replace(".", "_").replace("/", "_")
     ] = cur_op.id
 
 from .wasmtypes import (
