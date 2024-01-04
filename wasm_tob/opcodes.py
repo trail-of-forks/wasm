@@ -33,9 +33,9 @@ OPCODES = [
     Opcode(0x1a, 'drop',                  None,                     0),
     Opcode(0x1b, 'select',                None,                     0),
 
-    Opcode(0x20, 'get_local',             LocalVarXsImm(),          0),
-    Opcode(0x21, 'set_local',             LocalVarXsImm(),          0),
-    Opcode(0x22, 'tee_local',             LocalVarXsImm(),          0),
+    Opcode(0x20, 'local.get',             LocalVarXsImm(),          0),
+    Opcode(0x21, 'local.set',             LocalVarXsImm(),          0),
+    Opcode(0x22, 'local.tee',             LocalVarXsImm(),          0),
     Opcode(0x23, 'get_global',            GlobalVarXsImm(),         0),
     Opcode(0x24, 'set_global',            GlobalVarXsImm(),         0),
 
