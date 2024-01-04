@@ -38,7 +38,7 @@ OPCODES = [
     Opcode(0x22, 'local.tee',             LocalVarXsImm(),          0),
     Opcode(0x23, 'global.get',            GlobalVarXsImm(),         0),
     Opcode(0x24, 'global.set',            GlobalVarXsImm(),         0),
-
+    # Memory Instructions (https://webassembly.github.io/spec/core/binary/instructions.html#memory-instructions)
     Opcode(0x28, 'i32.load',              MemoryImm(),              0),
     Opcode(0x29, 'i64.load',              MemoryImm(),              0),
     Opcode(0x2a, 'f32.load',              MemoryImm(),              0),
@@ -62,9 +62,9 @@ OPCODES = [
     Opcode(0x3c, 'i64.store8',            MemoryImm(),              0),
     Opcode(0x3d, 'i64.store16',           MemoryImm(),              0),
     Opcode(0x3e, 'i64.store32',           MemoryImm(),              0),
-    Opcode(0x3f, 'current_memory',        CurGrowMemImm(),          0),
-    Opcode(0x40, 'grow_memory',           CurGrowMemImm(),          0),
-
+    Opcode(0x3f, 'memory.size',           CurGrowMemImm(),          0),
+    Opcode(0x40, 'memory.grow',           CurGrowMemImm(),          0),
+    # Numeric Instructions (https://webassembly.github.io/spec/core/binary/instructions.html#numeric-instructions)
     Opcode(0x41, 'i32.const',             I32ConstImm(),            0),
     Opcode(0x42, 'i64.const',             I64ConstImm(),            0),
     Opcode(0x43, 'f32.const',             F32ConstImm(),            0),
@@ -81,6 +81,7 @@ OPCODES = [
     Opcode(0x4d, 'i32.le_u',              None,                     0),
     Opcode(0x4e, 'i32.ge_s',              None,                     0),
     Opcode(0x4f, 'i32.ge_u',              None,                     0),
+
     Opcode(0x50, 'i64.eqz',               None,                     0),
     Opcode(0x51, 'i64.eq',                None,                     0),
     Opcode(0x52, 'i64.ne',                None,                     0),
@@ -92,12 +93,14 @@ OPCODES = [
     Opcode(0x58, 'i64.le_u',              None,                     0),
     Opcode(0x59, 'i64.ge_s',              None,                     0),
     Opcode(0x5a, 'i64.ge_u',              None,                     0),
+
     Opcode(0x5b, 'f32.eq',                None,                     0),
     Opcode(0x5c, 'f32.ne',                None,                     0),
     Opcode(0x5d, 'f32.lt',                None,                     0),
     Opcode(0x5e, 'f32.gt',                None,                     0),
     Opcode(0x5f, 'f32.le',                None,                     0),
     Opcode(0x60, 'f32.ge',                None,                     0),
+
     Opcode(0x61, 'f64.eq',                None,                     0),
     Opcode(0x62, 'f64.ne',                None,                     0),
     Opcode(0x63, 'f64.lt',                None,                     0),
@@ -123,6 +126,7 @@ OPCODES = [
     Opcode(0x76, 'i32.shr_u',             None,                     0),
     Opcode(0x77, 'i32.rotl',              None,                     0),
     Opcode(0x78, 'i32.rotr',              None,                     0),
+
     Opcode(0x79, 'i64.clz',               None,                     0),
     Opcode(0x7a, 'i64.ctz',               None,                     0),
     Opcode(0x7b, 'i64.popcnt',            None,                     0),
@@ -141,6 +145,7 @@ OPCODES = [
     Opcode(0x88, 'i64.shr_u',             None,                     0),
     Opcode(0x89, 'i64.rotl',              None,                     0),
     Opcode(0x8a, 'i64.rotr',              None,                     0),
+
     Opcode(0x8b, 'f32.abs',               None,                     0),
     Opcode(0x8c, 'f32.neg',               None,                     0),
     Opcode(0x8d, 'f32.ceil',              None,                     0),
@@ -155,6 +160,7 @@ OPCODES = [
     Opcode(0x96, 'f32.min',               None,                     0),
     Opcode(0x97, 'f32.max',               None,                     0),
     Opcode(0x98, 'f32.copysign',          None,                     0),
+    
     Opcode(0x99, 'f64.abs',               None,                     0),
     Opcode(0x9a, 'f64.neg',               None,                     0),
     Opcode(0x9b, 'f64.ceil',              None,                     0),
