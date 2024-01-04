@@ -77,7 +77,7 @@ def format_function(
         yield 'func' + param_section + result_section
 
     if format_locals and func_body.locals:
-        yield '(locals {})'.format(' '.join(itertools.chain.from_iterable(
+        yield '(local {})'.format(' '.join(itertools.chain.from_iterable(
             itertools.repeat(format_lang_type(x.type), x.count)
             for x in func_body.locals
         )))
