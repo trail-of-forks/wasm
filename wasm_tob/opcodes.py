@@ -36,8 +36,8 @@ OPCODES = [
     Opcode(0x20, 'local.get',             LocalVarXsImm(),          0),
     Opcode(0x21, 'local.set',             LocalVarXsImm(),          0),
     Opcode(0x22, 'local.tee',             LocalVarXsImm(),          0),
-    Opcode(0x23, 'get_global',            GlobalVarXsImm(),         0),
-    Opcode(0x24, 'set_global',            GlobalVarXsImm(),         0),
+    Opcode(0x23, 'global.get',            GlobalVarXsImm(),         0),
+    Opcode(0x24, 'global.set',            GlobalVarXsImm(),         0),
 
     Opcode(0x28, 'i32.load',              MemoryImm(),              0),
     Opcode(0x29, 'i64.load',              MemoryImm(),              0),
